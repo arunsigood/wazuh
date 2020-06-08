@@ -1592,7 +1592,7 @@ static int wm_sca_read_command(char *command, char *pattern, wm_sca_t * data, ch
     }
 
     char **output_line;
-    output_line = OS_StrBreak('\n', cmd_output, 256);
+    output_line = OS_StrBreak('\n', cmd_output, 256, 0);
 
     if(!output_line) {
         mdebug1("Command output could not be processed. Output dump:\n%s", cmd_output);

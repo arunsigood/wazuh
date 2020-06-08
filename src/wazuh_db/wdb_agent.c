@@ -949,7 +949,7 @@ time_t get_agent_date_added(int agent_id) {
             char * date = NULL;
             *sep = ' ';
 
-            data = OS_StrBreak(' ', line, 5);
+            data = OS_StrBreak(' ', line, 5, 0);
 
             if(data == NULL) {
                 fclose(fp);

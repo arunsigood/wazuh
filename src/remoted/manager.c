@@ -1305,7 +1305,7 @@ int purge_group(char *group){
                     return -1;
                 }
 
-                groups = OS_StrBreak(MULTIGROUP_SEPARATOR, groups_info, MAX_GROUPS_PER_MULTIGROUP);
+                groups = OS_StrBreak(MULTIGROUP_SEPARATOR, groups_info, MAX_GROUPS_PER_MULTIGROUP, 0);
                 for (i=0; groups[i] != NULL; i++) {
                     if(!strcmp(groups[i], group)){
                         continue;

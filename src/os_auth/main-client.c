@@ -454,7 +454,7 @@ int main(int argc, char **argv)
                         exit(1);
                     }
                     *tmpstr = '\0';
-                    entry = OS_StrBreak(' ', key, 4);
+                    entry = OS_StrBreak(' ', key, 4, 0);
                     if (!OS_IsValidID(entry[0]) || !OS_IsValidName(entry[1]) ||
                             !OS_IsValidIP(entry[2], NULL) || !OS_IsValidName(entry[3])) {
                         merror("Invalid key received (2). Closing connection.");

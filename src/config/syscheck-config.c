@@ -341,7 +341,7 @@ int read_reg(syscheck_config *syscheck, char *entries, int arch, char *tag)
     char *tmp_str;
 
     /* Get each entry separately */
-    entry = OS_StrBreak(',', entries, MAX_DIR_SIZE); /* Max number */
+    entry = OS_StrBreak(',', entries, MAX_DIR_SIZE, 0); /* Max number */
 
     if (entry == NULL) {
         return (0);
@@ -439,7 +439,7 @@ static int read_attr(syscheck_config *syscheck, const char *dirs, char **g_attrs
 
     /* Variables for extract directories and free memory after that */
     char **dir;
-    dir = OS_StrBreak(',', dirs, MAX_DIR_SIZE); /* Max number */
+    dir = OS_StrBreak(',', dirs, MAX_DIR_SIZE, 1); /* Max number */
     char **dir_org = dir;
     int i;
 
@@ -1744,7 +1744,7 @@ static char **get_paths_from_env_variable (char *environment_variable) {
     }
 
     /* The env. variable may have multiples paths split by ; */
-    paths = OS_StrBreak(';', expandedpath, MAX_DIR_SIZE);
+    paths = OS_StrBreak(';', expandedpath, MAX_DIR_SIZE, 0);
 
     for (int i = 0; paths[i]; i++) {
         str_lowercase(paths[i]);
@@ -1759,7 +1759,7 @@ static char **get_paths_from_env_variable (char *environment_variable) {
 
     if(expandedpath = getenv(environment_variable), expandedpath) {
         /* The env. variable may have multiples paths split by : */
-        paths = OS_StrBreak(':', expandedpath, MAX_DIR_SIZE);
+        paths = OS_StrBreak(':', expandedpath, MAX_DIR_SIZE, 0);
     }
 
 #endif

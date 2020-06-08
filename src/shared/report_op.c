@@ -509,7 +509,7 @@ void os_ReportdStart(report_filter *r_filter)
             char *tmp_str;
             char **mgroup;
 
-            mgroup = OS_StrBreak(',', al_data->group, 32);
+            mgroup = OS_StrBreak(',', al_data->group, 32, 0);
             if (mgroup) {
             	char **mgroup_orig = mgroup;
                 while (*mgroup) {

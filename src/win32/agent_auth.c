@@ -307,7 +307,7 @@ void InstallAuthKeys(char *msg)
             merror_exit("Invalid key received. Closing connection.");
 
         *tmpstr = '\0';
-        entry = OS_StrBreak(' ', key, 4);
+        entry = OS_StrBreak(' ', key, 4, 0);
 
         if (!OS_IsValidID(entry[0]) || !OS_IsValidName(entry[1]) ||
             !OS_IsValidName(entry[2]) || !OS_IsValidName(entry[3]))

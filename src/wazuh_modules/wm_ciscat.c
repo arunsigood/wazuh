@@ -610,7 +610,7 @@ char * wm_ciscat_get_profile() {
 
         char ** parts = NULL;
 
-        parts = OS_StrBreak('"', readbuff, 3);
+        parts = OS_StrBreak('"', readbuff, 3, 0);
         os_strdup(parts[1], profile);
 
         for (i=0; parts[i]; i++){
@@ -678,7 +678,7 @@ wm_scan_data* wm_ciscat_txt_parser(){
 
                 char ** parts = NULL;
 
-                parts = OS_StrBreak(' ', readbuff, 3);
+                parts = OS_StrBreak(' ', readbuff, 3, 0);
                 os_strdup(parts[2], info->hostname);
 
                 for (i=0; parts[i]; i++){
@@ -690,7 +690,7 @@ wm_scan_data* wm_ciscat_txt_parser(){
 
                 char ** parts = NULL;
 
-                parts = OS_StrBreak(' ', readbuff, 2);
+                parts = OS_StrBreak(' ', readbuff, 2, 0);
                 os_strdup(parts[1], info->timestamp);
 
                 for (i=0; parts[i]; i++){
@@ -710,7 +710,7 @@ wm_scan_data* wm_ciscat_txt_parser(){
 
                 char ** parts = NULL;
 
-                parts = OS_StrBreak(' ', readbuff, 2);
+                parts = OS_StrBreak(' ', readbuff, 2, 0);
                 info->pass = atoi(parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -722,7 +722,7 @@ wm_scan_data* wm_ciscat_txt_parser(){
 
                 char ** parts = NULL;
 
-                parts = OS_StrBreak(' ', readbuff, 2);
+                parts = OS_StrBreak(' ', readbuff, 2, 0);
                 info->fail = atoi(parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -734,7 +734,7 @@ wm_scan_data* wm_ciscat_txt_parser(){
 
                 char ** parts = NULL;
 
-                parts = OS_StrBreak(' ', readbuff, 2);
+                parts = OS_StrBreak(' ', readbuff, 2, 0);
                 info->error = atoi(parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -746,7 +746,7 @@ wm_scan_data* wm_ciscat_txt_parser(){
 
                 char ** parts = NULL;
 
-                parts = OS_StrBreak(' ', readbuff, 2);
+                parts = OS_StrBreak(' ', readbuff, 2, 0);
                 info->unknown = atoi(parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -758,7 +758,7 @@ wm_scan_data* wm_ciscat_txt_parser(){
 
                 char ** parts = NULL;
 
-                parts = OS_StrBreak(' ', readbuff, 3);
+                parts = OS_StrBreak(' ', readbuff, 3, 0);
                 info->notchecked = atoi(parts[2]);
 
                 for (i=0; parts[i]; i++){
@@ -770,7 +770,7 @@ wm_scan_data* wm_ciscat_txt_parser(){
 
                 char ** parts = NULL;
 
-                parts = OS_StrBreak(' ', readbuff, 2);
+                parts = OS_StrBreak(' ', readbuff, 2, 0);
                 os_strdup(parts[1], info->score);
 
                 for (i=0; parts[i]; i++){
@@ -789,7 +789,7 @@ wm_scan_data* wm_ciscat_txt_parser(){
 
                 char ** parts = NULL;
 
-                parts = OS_StrBreak(' ', readbuff, 3);
+                parts = OS_StrBreak(' ', readbuff, 3, 0);
 
                 os_strdup(parts[1], rule->id);
                 os_strdup(parts[2], rule->title);

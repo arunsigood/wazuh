@@ -117,7 +117,7 @@ void check_day_of_week(const sched_scan_config *scan_config, struct tm *date_arr
  * */
 void check_time_of_day(const sched_scan_config *scan_config, struct tm *date_array, unsigned int MAX_DATES) {
     for (int i = 0; i < MAX_DATES; i++) {
-        char ** parts = OS_StrBreak(':', scan_config->scan_time, 2);
+        char ** parts = OS_StrBreak(':', scan_config->scan_time, 2, 0);
         // Look for the particular hour
         int tm_hour = atoi(parts[0]);
         int tm_min = atoi(parts[1]);

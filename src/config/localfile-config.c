@@ -110,7 +110,7 @@ int Read_Localfile(XML_NODE node, void *d1, __attribute__((unused)) void *d2)
                     count ++;
                 }
             }
-            logf[pl].target = OS_StrBreak(',', node[i]->content, count);
+            logf[pl].target = OS_StrBreak(',', node[i]->content, count, 0);
             char * tmp;
             if(logf[pl].target) {
                 for (n=0; n<count; n++) {

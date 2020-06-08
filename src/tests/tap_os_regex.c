@@ -306,7 +306,7 @@ int test_strbreak() {
     };
 
     for (i = 0; tests[i][0] != NULL; i++) {
-        char **result = OS_StrBreak(tests[i][0][0], tests[i][1], (unsigned) atoi(tests[i][2]));
+        char **result = OS_StrBreak(tests[i][0][0], tests[i][1], (unsigned) atoi(tests[i][2]), 0);
 
         int j = 3;
         if (tests[i][j] == NULL) {

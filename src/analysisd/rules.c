@@ -1275,7 +1275,7 @@ int Rules_OP_ReadRules(const char *rulefile)
                         char **s_norder;
                         int i;
 
-                        norder = OS_StrBreak(',', rule_opt[k]->content, Config.decoder_order_size);
+                        norder = OS_StrBreak(',', rule_opt[k]->content, Config.decoder_order_size, 0);
                         if (norder == NULL) {
                             merror_exit(MEM_ERROR, errno, strerror(errno));
                         }
@@ -1322,7 +1322,7 @@ int Rules_OP_ReadRules(const char *rulefile)
                         char **s_norder;
                         int i;
 
-                        norder = OS_StrBreak(',', rule_opt[k]->content, Config.decoder_order_size);
+                        norder = OS_StrBreak(',', rule_opt[k]->content, Config.decoder_order_size, 0);
                         if (norder == NULL) {
                             merror_exit(MEM_ERROR, errno, strerror(errno));
                         }

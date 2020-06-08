@@ -616,7 +616,7 @@ char * sys_deb_packages(int queue_fd, const char* LOCATION, int random_id){
                 cJSON_AddStringToObject(package, "format", format);
 
                 char ** parts = NULL;
-                parts = OS_StrBreak(' ', read_buff, 2);
+                parts = OS_StrBreak(' ', read_buff, 2, 0);
                 cJSON_AddStringToObject(package, "name", parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -634,7 +634,7 @@ char * sys_deb_packages(int queue_fd, const char* LOCATION, int random_id){
             } else if (!strncmp(read_buff, "Priority: ", 10)) {
 
                 char ** parts = NULL;
-                parts = OS_StrBreak(' ', read_buff, 2);
+                parts = OS_StrBreak(' ', read_buff, 2, 0);
                 cJSON_AddStringToObject(package, "priority", parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -645,7 +645,7 @@ char * sys_deb_packages(int queue_fd, const char* LOCATION, int random_id){
             } else if (!strncmp(read_buff, "Section: ", 9)) {
 
                 char ** parts = NULL;
-                parts = OS_StrBreak(' ', read_buff, 2);
+                parts = OS_StrBreak(' ', read_buff, 2, 0);
                 cJSON_AddStringToObject(package, "group", parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -656,7 +656,7 @@ char * sys_deb_packages(int queue_fd, const char* LOCATION, int random_id){
             } else if (!strncmp(read_buff, "Installed-Size: ", 16)) {
 
                 char ** parts = NULL;
-                parts = OS_StrBreak(' ', read_buff, 2);
+                parts = OS_StrBreak(' ', read_buff, 2, 0);
                 cJSON_AddNumberToObject(package, "size", atoi(parts[1]));
 
                 for (i=0; parts[i]; i++){
@@ -667,7 +667,7 @@ char * sys_deb_packages(int queue_fd, const char* LOCATION, int random_id){
             } else if (!strncmp(read_buff, "Maintainer: ", 12)) {
 
                 char ** parts = NULL;
-                parts = OS_StrBreak(' ', read_buff, 2);
+                parts = OS_StrBreak(' ', read_buff, 2, 0);
                 cJSON_AddStringToObject(package, "vendor", parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -678,7 +678,7 @@ char * sys_deb_packages(int queue_fd, const char* LOCATION, int random_id){
             } else if (!strncmp(read_buff, "Architecture: ", 14)) {
 
                 char ** parts = NULL;
-                parts = OS_StrBreak(' ', read_buff, 2);
+                parts = OS_StrBreak(' ', read_buff, 2, 0);
                 cJSON_AddStringToObject(package, "architecture", parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -689,7 +689,7 @@ char * sys_deb_packages(int queue_fd, const char* LOCATION, int random_id){
             } else if (!strncmp(read_buff, "Multi-Arch: ", 12)) {
 
                 char ** parts = NULL;
-                parts = OS_StrBreak(' ', read_buff, 2);
+                parts = OS_StrBreak(' ', read_buff, 2, 0);
                 cJSON_AddStringToObject(package, "multi-arch", parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -700,7 +700,7 @@ char * sys_deb_packages(int queue_fd, const char* LOCATION, int random_id){
             } else if (!strncmp(read_buff, "Source: ", 8)) {
 
                 char ** parts = NULL;
-                parts = OS_StrBreak(' ', read_buff, 2);
+                parts = OS_StrBreak(' ', read_buff, 2, 0);
                 cJSON_AddStringToObject(package, "source", parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -711,7 +711,7 @@ char * sys_deb_packages(int queue_fd, const char* LOCATION, int random_id){
             } else if (!strncmp(read_buff, "Version: ", 9)) {
 
                 char ** parts = NULL;
-                parts = OS_StrBreak(' ', read_buff, 2);
+                parts = OS_StrBreak(' ', read_buff, 2, 0);
                 cJSON_AddStringToObject(package, "version", parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -722,7 +722,7 @@ char * sys_deb_packages(int queue_fd, const char* LOCATION, int random_id){
             } else if (!strncmp(read_buff, "Description: ", 13)) {
 
                 char ** parts = NULL;
-                parts = OS_StrBreak(' ', read_buff, 2);
+                parts = OS_StrBreak(' ', read_buff, 2, 0);
                 cJSON_AddStringToObject(package, "description", parts[1]);
 
                 for (i=0; parts[i]; i++){
@@ -1090,7 +1090,7 @@ char* get_serial_number(){
     if((fp = fopen(file, "r"))){
         if (fgets(serial_str, SERIAL_LENGTH, fp) != NULL){
 
-            parts = OS_StrBreak('\n', serial_str, 2);
+            parts = OS_StrBreak('\n', serial_str, 2, 0);
             snprintf(serial, SERIAL_LENGTH, "%s", parts[0]);
             for (i = 0; parts[i]; i++){
                 free(parts[i]);
@@ -1174,7 +1174,7 @@ char* get_oper_state(char *ifa_name){
     if((fp = fopen(file, "r"))){
         if (fgets(state_str, STATE_LENGTH, fp) != NULL){
 
-            parts = OS_StrBreak('\n', state_str, 2);
+            parts = OS_StrBreak('\n', state_str, 2, 0);
             snprintf(state, STATE_LENGTH, "%s", parts[0]);
             for (i = 0; parts[i]; i++){
                 free(parts[i]);
@@ -1205,7 +1205,7 @@ char* get_mtu(char *ifa_name){
     if((fp = fopen(file, "r"))){
         if (fgets(mtu_str, 20, fp) != NULL){
 
-            parts = OS_StrBreak('\n', mtu_str, 2);
+            parts = OS_StrBreak('\n', mtu_str, 2, 0);
             snprintf(mtu, MTU_LENGTH, "%s", parts[0]);
             for (i = 0; parts[i]; i++){
                 free(parts[i]);
@@ -1756,7 +1756,7 @@ void getNetworkIface_linux(cJSON *object, char *iface_name, struct ifaddrs *ifad
                 if (result == 0) {
                     char ** parts = NULL;
                     char *ip_addrr;
-                    parts = OS_StrBreak('%', host, 2);
+                    parts = OS_StrBreak('%', host, 2, 0);
                     if(parts) {
                         ip_addrr = w_strtrim(parts[0]);
                         cJSON_AddItemToArray(ipv6_addr, cJSON_CreateString(ip_addrr));

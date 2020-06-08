@@ -390,7 +390,7 @@ void OS_IntegratorD(IntegratorConfig **integrator_config)
 
                 mdebug1("Running: %s", exec_full_cmd);
 
-                char **cmd = OS_StrBreak(' ', exec_full_cmd, 5);
+                char **cmd = OS_StrBreak(' ', exec_full_cmd, 5, 0);
 
                 if(cmd) {
                     wfd_t * wfd = wpopenv(integrator_config[s]->path, cmd, W_BIND_STDOUT | W_BIND_STDERR | W_CHECK_WRITE);

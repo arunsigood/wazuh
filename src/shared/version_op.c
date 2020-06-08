@@ -147,7 +147,7 @@ os_info *get_win_version()
                 merror("Error reading 'Current Version' from Windows registry. (Error %u)",(unsigned int)dwRet);
             }
             else {
-                char ** parts = OS_StrBreak('.', winver, 2);
+                char ** parts = OS_StrBreak('.', winver, 2, 0);
                 info->os_major = strdup(parts[0]);
                 info->os_minor = strdup(parts[1]);
                 for (i = 0; parts[i]; i++){

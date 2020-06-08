@@ -499,7 +499,7 @@ char * wstr_delete_repeated_groups(const char * string){
     char *result = NULL;
     int i, k;
 
-    aux = OS_StrBreak(MULTIGROUP_SEPARATOR, string, MAX_GROUPS_PER_MULTIGROUP);
+    aux = OS_StrBreak(MULTIGROUP_SEPARATOR, string, MAX_GROUPS_PER_MULTIGROUP, 0);
 
     for (i=0; aux[i] != NULL; i++) {
         for (k=0; k < i; k++){

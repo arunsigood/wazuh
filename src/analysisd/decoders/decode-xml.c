@@ -485,7 +485,7 @@ int ReadDecodeXML(const char *file)
                     merror_exit("Order has too many fields.");
                 }
 
-                norder = OS_StrBreak(',', elements[j]->content, Config.decoder_order_size);
+                norder = OS_StrBreak(',', elements[j]->content, Config.decoder_order_size, 0);
                 s_norder = norder;
                 os_calloc(Config.decoder_order_size, sizeof(void *(*)(struct _Eventinfo *, char *, const char *)), pi->order);
                 os_calloc(Config.decoder_order_size, sizeof(char *), pi->fields);
@@ -557,7 +557,7 @@ int ReadDecodeXML(const char *file)
                 char **s_norder;
 
                 /* Maximum number for the FTS is limited by decoder_order_size */
-                norder = OS_StrBreak(',', elements[j]->content, Config.decoder_order_size);
+                norder = OS_StrBreak(',', elements[j]->content, Config.decoder_order_size, 0);
                 if (norder == NULL) {
                     merror_exit(MEM_ERROR, errno, strerror(errno));
                 }

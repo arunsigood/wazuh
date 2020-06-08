@@ -254,7 +254,7 @@ unsigned long int get_time_to_hour(const char * hour, const unsigned int num_day
     double diff;
     int i;
 
-    char ** parts = OS_StrBreak(':', hour, 2);
+    char ** parts = OS_StrBreak(':', hour, 2, 0);
 
     // Get current time
     curr_time = time(NULL);
@@ -299,7 +299,7 @@ unsigned long int get_time_to_day(int wday, const char * hour, const unsigned in
     int i, ret;
 
     // Get exact hour and minute to go to
-    char ** parts = OS_StrBreak(':', hour, 2);
+    char ** parts = OS_StrBreak(':', hour, 2, 0);
 
     // Get current time
     curr_time = time(NULL);
@@ -362,7 +362,7 @@ unsigned long int get_time_to_month_day(int month_day, const char* hour, int num
 
     struct tm t_target = tm_result;
     // Get exact hour and minute to go to
-    char ** parts = OS_StrBreak(':', hour, 2);
+    char ** parts = OS_StrBreak(':', hour, 2, 0);
     // Look for the target day an hour
     t_target.tm_mday = month_day;
     t_target.tm_hour = atoi(parts[0]);

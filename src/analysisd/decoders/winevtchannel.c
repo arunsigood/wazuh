@@ -633,7 +633,7 @@ int DecodeWinevt(Eventinfo *lf){
                 char * filtered_changes = wstr_replace(auditPolicyChangesId, "%%", "");
                 os_free(auditPolicyChangesId);
 
-                audit_split = OS_StrBreak(',', filtered_changes, 4);
+                audit_split = OS_StrBreak(',', filtered_changes, 4, 0);
 
                 while (audit_split[i]) {
                     audit_split_n = strtol(audit_split[i], NULL, 10);

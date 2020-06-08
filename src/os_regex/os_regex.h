@@ -130,10 +130,15 @@ int OS_Match2(const char *pattern, const char *str)  __attribute__((nonnull(2)))
 int OS_WordMatch(const char *pattern, const char *str) __attribute__((nonnull));
 #define OS_Match OS_WordMatch
 
-/* Split a string into multiples pieces, divided by a char "match".
- * Returns a NULL terminated array on success or NULL on error.
+/**
+ * @brief Split a string into multiples pieces, divided by a char "match".
+ * @param match Separator
+ * @param str String to split
+ * @param size
+ * @param scape_match determine if it can has separators scaped by backslash
+ * @return Returns a NULL terminated array on success or NULL on error
  */
-char **OS_StrBreak(char match, const char *str, size_t size);
+char **OS_StrBreak(char match, const char *str, size_t size, int scape_match);
 
 /* Returns the number of characters that both strings
  * have in similar (start at the beginning of them).

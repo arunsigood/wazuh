@@ -725,7 +725,7 @@ char * get_agent_id_from_name(const char *agent_name) {
 
         char **parts;
 
-        parts = OS_StrBreak(' ',buffer,4);
+        parts = OS_StrBreak(' ', buffer, 4, 0);
 
         if(!parts) {
             continue;

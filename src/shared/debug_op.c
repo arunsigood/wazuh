@@ -242,7 +242,7 @@ void os_logging_config(){
 
   }else{
 
-    parts = OS_StrBreak(',', logformat, 2);
+    parts = OS_StrBreak(',', logformat, 2, 0);
     char * part;
     if (parts){
       for (i=0; parts[i]; i++){
