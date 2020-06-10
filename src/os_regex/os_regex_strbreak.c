@@ -27,8 +27,8 @@ char **OS_StrBreak(char match, const char *str, size_t size, int scape_match)
     int pos = 0;
     int pos_aux = 0;
     int elemts = 0;
-    char *tmp_str;
-    char **ret;
+    char *tmp_str = NULL;
+    char **ret = NULL;
 
     /* We can't do anything if str is null */
     if (str == NULL) {

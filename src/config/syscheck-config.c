@@ -337,7 +337,7 @@ int read_reg(syscheck_config *syscheck, char *entries, int arch, char *tag)
 {
     int i;
     int j;
-    char **entry;
+    char **entry = NULL;
     char *tmp_str;
 
     /* Get each entry separately */
@@ -438,7 +438,7 @@ static int read_attr(syscheck_config *syscheck, const char *dirs, char **g_attrs
     int opts = 0;
 
     /* Variables for extract directories and free memory after that */
-    char **dir;
+    char **dir = NULL;
     dir = OS_StrBreak(',', dirs, MAX_DIR_SIZE, 1); /* Max number */
     char **dir_org = dir;
     int i;
@@ -720,7 +720,6 @@ static int read_attr(syscheck_config *syscheck, const char *dirs, char **g_attrs
     char **env_variable;
 #ifdef WIN32
     int retvalF;
-    int len_tmp;
 #endif
 
     while (*dir) {
@@ -744,8 +743,6 @@ static int read_attr(syscheck_config *syscheck, const char *dirs, char **g_attrs
         }
 
 #ifdef WIN32
-
-        len_tmp = strlen(tmp_dir);
 
         /* If it's an environment variable, expand it */
         if(env_variable = get_paths_from_env_variable(tmp_dir), env_variable){
