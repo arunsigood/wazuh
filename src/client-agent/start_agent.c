@@ -350,7 +350,7 @@ static ssize_t receive_message_udp(const char *msg, char *buffer, unsigned int m
                     sleep(attempts);
                 }
             }
-        } else {
+        }  else {
             return recv_b;
         }   
     }
