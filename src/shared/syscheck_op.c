@@ -19,13 +19,13 @@ extern void mock_assert(const int result, const char* const expression,
     mock_assert((int)(expression), #expression, __FILE__, __LINE__);
 
 #ifdef WIN32
-#include "unit_tests/wrappers/windows/aclapi_wrappers.h"
-#include "unit_tests/wrappers/windows/errhandlingapi_wrappers.h"
-#include "unit_tests/wrappers/windows/fileapi_wrappers.h"
-#include "unit_tests/wrappers/windows/handleapi_wrappers.h"
-#include "unit_tests/wrappers/windows/sddl_wrappers.h"
-#include "unit_tests/wrappers/windows/securitybaseapi_wrappers.h"
-#include "unit_tests/wrappers/windows/winbase_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/aclapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/errhandlingapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/fileapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/handleapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/sddl_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/securitybaseapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/winbase_wrappers.h"
 
 #endif
 #endif

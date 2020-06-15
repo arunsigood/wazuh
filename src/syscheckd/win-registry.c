@@ -18,7 +18,7 @@
 #include <openssl/evp.h>
 
 #ifdef UNIT_TESTING
-#include "unit_tests/wrappers/windows/winreg_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/winreg_wrappers.h"
 #endif
 
 /* Default values */

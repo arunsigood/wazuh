@@ -32,21 +32,21 @@
 #define WHODATA_DIR_REMOVE_INTERVAL 2
 
 #ifdef UNIT_TESTING
-#include "unit_tests/wrappers/windows/aclapi_wrappers.h"
-#include "unit_tests/wrappers/windows/errhandlingapi_wrappers.h"
-#include "unit_tests/wrappers/windows/fileapi_wrappers.h"
-#include "unit_tests/wrappers/windows/handleapi_wrappers.h"
-#include "unit_tests/wrappers/windows/heapapi_wrappers.h"
-#include "unit_tests/wrappers/windows/processthreadsapi_wrappers.h"
-#include "unit_tests/wrappers/windows/sddl_wrappers.h"
-#include "unit_tests/wrappers/windows/securitybaseapi_wrappers.h"
-#include "unit_tests/wrappers/windows/stringapiset_wrappers.h"
-#include "unit_tests/wrappers/windows/synchapi_wrappers.h"
-#include "unit_tests/wrappers/windows/sysinfoapi_wrappers.h"
-#include "unit_tests/wrappers/windows/timezoneapi_wrappers.h"
-#include "unit_tests/wrappers/windows/winbase_wrappers.h"
-#include "unit_tests/wrappers/windows/winevt_wrappers.h"
-#include "unit_tests/wrappers/windows/winreg_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/aclapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/errhandlingapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/fileapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/handleapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/heapapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/processthreadsapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/sddl_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/securitybaseapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/stringapiset_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/synchapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/sysinfoapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/timezoneapi_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/winbase_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/winevt_wrappers.h"
+#include "unit_tests/wrappers/external_wrappers/windows/winreg_wrappers.h"
 
 // Remove static qualifier when unit testing
 #define STATIC

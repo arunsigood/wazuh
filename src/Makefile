@@ -973,7 +973,13 @@ os_net/%.o: os_net/%.c
 wrappers_common_c := $(wildcard unit_tests/wrappers/*.c)
 wrappers_common_o := $(wrappers_common_c:.c=.o)
 
-wrappers_windows_c := $(wildcard unit_tests/wrappers/windows/*.c)
+wrappers_wazuh_c := $(wildcard unit_tests/wrappers/wazuh_wrappers//*.c)
+wrappers_wazuh_o := $(wrappers_wazuh_c:.c=.o)
+
+wrappers_external_c := $(wildcard unit_tests/wrappers/external_wrappers/*.c)
+wrappers_external_o := $(wrappers_external_c:.c=.o)
+
+wrappers_windows_c := $(wildcard unit_tests/wrappers/external_wrappers/windows/*.c)
 wrappers_windows_o := $(wrappers_windows_c:.c=.o)
 
 ifneq (,$(filter ${TEST},YES yes y Y 1))
@@ -983,6 +989,8 @@ ifneq (,$(filter ${TEST},YES yes y Y 1))
 	OSSEC_LIBS+=${LIBS_TEST}
 
 UNIT_TEST_WRAPPERS:=${wrappers_common_o}
+UNIT_TEST_WRAPPERS:=${wrappers_wazuh_o}
+UNIT_TEST_WRAPPERS:=${wrappers_external_o}
 ifeq (${TARGET},winagent)
 	UNIT_TEST_WRAPPERS+=${wrappers_windows_o}
 endif
@@ -1595,11 +1603,14 @@ LIBS_TEST=-lcmocka
 unit_tests/wrappers/%.o: unit_tests/wrappers/%.c
 	${OSSEC_CC} ${OSSEC_CFLAGS} ${DEFINES_EVENTCHANNEL} -c $^ -o $@
 
-unit_tests/wrappers/syscheckd/%.o: unit_tests/wrappers/syscheckd/%.c
+unit_tests/wrappers/external_wrappers/%.o: unit_tests/wrappers/external_wrappers/%.c
 	${OSSEC_CC} ${OSSEC_CFLAGS} ${DEFINES_EVENTCHANNEL} -c $^ -o $@
 
-unit_tests/wrappers/shared/%.o: unit_tests/wrappers/shared/%.c
-	${OSSEC_CC} ${OSSEC_CFLAGS} -c $^ -o $@
+unit_tests/wrappers/external_wrappers/windows/%.o: unit_tests/wrappers/external_wrappers/windows/%.c
+	${OSSEC_CC} ${OSSEC_CFLAGS} ${DEFINES_EVENTCHANNEL} -c $^ -o $@
+
+unit_tests/wrappers/wazuh_wrappers/%.o: unit_tests/wrappers/wazuh_wrappers/%.c
+	${OSSEC_CC} ${OSSEC_CFLAGS} ${DEFINES_EVENTCHANNEL} -c $^ -o $@
 
 .PHONY: test run_valgrind_tests run_tests build_tests test_valgrind test_coverage
 
@@ -1804,6 +1815,8 @@ clean-internals: clean-unit-tests
 	
 clean-unit-tests:
 	rm -f ${wrappers_windows_o}
+	rm -f ${wrappers_external_o}
+	rm -f ${wrappers_wazuh_o}
 	rm -f ${wrappers_common_o}
 
 clean-framework:

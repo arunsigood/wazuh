@@ -11,8 +11,9 @@ if(${TARGET} STREQUAL "winagent")
 
   # Add test wrappers
   file(GLOB test_wrapper_files
-       ${SRC_FOLDER}/unit_tests/wrappers/syscheckd/*.o
-       ${SRC_FOLDER}/unit_tests/wrappers/shared/*.o
+       ${SRC_FOLDER}/unit_tests/wrappers/wazuh_wrappers/*.o
+       ${SRC_FOLDER}/unit_tests/wrappers/external_wrappers/*.o
+       ${SRC_FOLDER}/unit_tests/wrappers/external_wrappers/windows/*.o
        )
   list(APPEND sysfiles ${test_wrapper_files})
 endif()
